@@ -158,8 +158,10 @@ Scripts write to `OUTDIR` (default `/home/trev/.openclaw/workspace/reports`):
 **Baseline date:** 2026-04-22  
 **Benchmark thread IDs:** `1790,166398,176728,125224,190100,145939,117608,135883,151225,8930,96762,159035,19435,93110,175065,154032,42644,154922,83475,179617`
 
-These 20 threads were selected by `scripts/ga4_thread_opportunity_report.py` as having the highest ROI potential from title rewrites. Baseline metrics are stored in:
-- `/home/trev/.openclaw/workspace/reports/seo-thread-opportunities-2026-04-22.json`
+These 20 threads were selected by `scripts/ga4_thread_opportunity_report.py` as having the highest ROI potential from title rewrites.
+
+**Canonical baseline data:** `benchmarks/title-rewrite-top20-baseline.csv` (committed to repo — human-readable, diff-friendly)
+**Raw report:** `/home/trev/.openclaw/workspace/reports/seo-thread-opportunities-2026-04-22.json`
 
 ### How to rerun the benchmark
 
