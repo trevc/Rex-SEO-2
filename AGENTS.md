@@ -139,3 +139,12 @@ Scripts write to `OUTDIR` (default `/home/trev/.openclaw/workspace/reports`):
 - `seo-thread-opportunities-{DATE}.csv`
 - `seo-best-performers-{DATE}.md`
 - `seo-best-performers-{DATE}.json`
+
+## Absolute path hygiene
+
+When passing `filePath` to Read, Write, or Edit tools, always provide a **literal absolute path starting with `/`**. Do **not** prefix paths with stray characters (especially `:`) — when a `filePath` does not begin with `/`, the read tool treats it as relative to the working directory and prepends the CWD, producing bogus doubled paths like `/home/trev/rex-seo/:/home/trev/.config/opencode/tui.json`.
+
+- **Wrong:** `"filePath":":/home/trev/.config/opencode/tui.json"`
+- **Correct:** `"filePath":"/home/trev/.config/opencode/tui.json"`
+
+Verify the path before calling Read/Write/Edit if unsure.
