@@ -10,6 +10,19 @@ credentials layout, and Chrome MCP recovery instructions.
 - `.env` is **gitignored** and lives at repo root
 - `.env-example` shows the required variables without secret values
 
+## Verified tool status
+
+As of the latest setup session, all tools are installed and confirmed working:
+
+| Tool | Status | Details |
+|------|--------|---------|
+| `analytics-mcp` (pipx) | ✅ | Python venv at `~/.local/share/pipx/venvs/analytics-mcp/`, shebang interpreter working |
+| `google-analytics-mcp` | ✅ | Global opencode MCP server, responds to JSON-RPC `initialize` |
+| `chrome-devtools-mcp` | ✅ | Global npm install, navigated `omegaforums.net`, snapshot + screenshot captured |
+| XenForo API | ✅ | `~/.config/xenforo-api.env` loaded, `GET /threads/` returns 200 with live data |
+
+Global opencode MCP config: `~/.config/opencode/opencode.json` wires both `google-analytics` and `chrome-devtools` as local stdio servers.
+
 ## Secrets layout
 
 Local sensitive files:
