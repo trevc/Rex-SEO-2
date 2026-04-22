@@ -153,6 +153,29 @@ Scripts write to `OUTDIR` (default `/home/trev/.openclaw/workspace/reports`):
 - `seo-best-performers-{DATE}.md`
 - `seo-best-performers-{DATE}.json`
 
+## Benchmark: Top 20 Thread Title Rewrites
+
+**Baseline date:** 2026-04-22  
+**Benchmark thread IDs:** `1790,166398,176728,125224,190100,145939,117608,135883,151225,8930,96762,159035,19435,93110,175065,154032,42644,154922,83475,179617`
+
+These 20 threads were selected by `scripts/ga4_thread_opportunity_report.py` as having the highest ROI potential from title rewrites. Baseline metrics are stored in:
+- `/home/trev/.openclaw/workspace/reports/seo-thread-opportunities-2026-04-22.json`
+
+### How to rerun the benchmark
+
+When the user asks for a "rerun" or "check benchmark" or "compare title rewrite results":
+
+1. Fix DNS if needed (`resolvectl dns enp7s0 1.1.1.1 8.8.8.8 && resolvectl flush-caches` or use `getent ahosts analyticsdata.googleapis.com` to verify).
+2. Run the opportunity report:
+   ```bash
+   export $(grep -v '^#' /home/trev/Rex-SEO-2/.env | xargs)
+   ~/.local/share/pipx/venvs/analytics-mcp/bin/python /home/trev/Rex-SEO-2/scripts/ga4_thread_opportunity_report.py
+   ```
+3. Read the latest JSON report from `OUTDIR`.
+4. Filter to the benchmark thread IDs above.
+5. Output a comparison table with: current title, position, CTR, clicks, impressions, sessions — plus the delta vs the baseline date (2026-04-22).
+6. Also provide the comma-separated thread ID list on its own line for copy/paste.
+
 ## Absolute path hygiene
 
 When passing `filePath` to Read, Write, or Edit tools, always provide a **literal absolute path starting with `/`**. Do **not** prefix paths with stray characters (especially `:`) — when a `filePath` does not begin with `/`, the read tool treats it as relative to the working directory and prepends the CWD, producing bogus doubled paths like `/home/trev/rex-seo/:/home/trev/.config/opencode/tui.json`.
