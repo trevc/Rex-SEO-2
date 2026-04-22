@@ -156,7 +156,9 @@ Scripts write to `OUTDIR` (default `/home/trev/.openclaw/workspace/reports`):
 ## Benchmark: Top 20 Thread Title Rewrites
 
 **Baseline date:** 2026-04-22  
-**Benchmark thread IDs:** `166398,176728,125224,190100,145939,117608,135883,151225,150436,96762,159035,19435,158026,93110,175065,154032,42644,154922,83475,179617`
+**Benchmark thread IDs (18):** `166398,176728,125224,190100,145939,117608,135883,151225,96762,159035,19435,93110,175065,154032,42644,154922,83475,179617`
+
+**Excluded from original set:** `1790` (eBay listing thread — not evergreen), `8930` (arrivals thread — poor search intent)
 
 These 20 threads were selected by `scripts/ga4_thread_opportunity_report.py` as having the highest ROI potential from title rewrites.
 
