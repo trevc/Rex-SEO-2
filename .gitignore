@@ -7,3 +7,6 @@ reports/
 *.json
 !package.json
 !package-lock.json
+
+# Test artifacts
+chrome-test-screenshot.png
